@@ -20,6 +20,12 @@ crash.*.log
 
 # Terraform plan outputs (do not commit)
 tfplan
+tfplan-*
 *.tfplan
 *.plan
 plan.out
+
+# Terraform temporary lockfile variants (Windows replace fallback artifacts)
+**/.terraform.lock.hcl[0-9]*
+
+

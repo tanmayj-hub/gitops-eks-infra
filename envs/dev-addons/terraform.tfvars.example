@@ -1,0 +1,8 @@
+project_slug = "ct-gitops"
+environment  = "dev"
+aws_region   = "us-east-2"
+
+# Override these only if your infra state uses a different backend path.
+infra_state_bucket = "ct-gitops-tfstate-us-east-2"
+infra_state_key    = "ct-gitops/dev/terraform.tfstate"
+infra_state_region = "us-east-2"
