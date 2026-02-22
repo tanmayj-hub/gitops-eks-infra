@@ -1,0 +1,22 @@
+name: terraform-ci
+on:
+  pull_request:
+    paths:
+      - "envs/**"
+      - "modules/**"
+      - ".github/workflows/terraform-ci.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.6.6
+      - name: fmt
+        run: terraform -chdir=envs/dev fmt -check -recursive
+      - name: init (no backend)
+        run: terraform -chdir=envs/dev init -backend=false
+      - name: validate
+        run: terraform -chdir=envs/dev validate
