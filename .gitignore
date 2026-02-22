@@ -17,3 +17,9 @@ crash.*.log
 
 # Local tooling
 .env
+
+# Terraform plan outputs (do not commit)
+tfplan
+*.tfplan
+*.plan
+plan.out
