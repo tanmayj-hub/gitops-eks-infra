@@ -1,10 +1,10 @@
 provider "aws" {
-  region = "us-east-2"
+  region = var.aws_region
 
   default_tags {
     tags = {
-      project = "ct-gitops"
-      env     = "dev"
+      project = var.project_slug
+      env     = var.environment
       managed = "terraform"
     }
   }
