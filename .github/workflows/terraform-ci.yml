@@ -10,6 +10,11 @@ on:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        stack:
+          - envs/dev
+          - envs/dev-addons
     steps:
       - uses: actions/checkout@v4
 
@@ -18,10 +23,10 @@ jobs:
           terraform_version: 1.6.6
 
       - name: fmt
-        run: terraform -chdir=envs/dev fmt -check -recursive
+        run: terraform -chdir=${{ matrix.stack }} fmt -check -recursive
 
       - name: init (no backend)
-        run: terraform -chdir=envs/dev init -backend=false
+        run: terraform -chdir=${{ matrix.stack }} init -backend=false
 
       - name: validate
-        run: terraform -chdir=envs/dev validate
+        run: terraform -chdir=${{ matrix.stack }} validate

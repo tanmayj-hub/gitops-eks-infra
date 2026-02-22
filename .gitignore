@@ -20,6 +20,15 @@ crash.*.log
 
 # Terraform plan outputs (do not commit)
 tfplan
+tfplan-*
 *.tfplan
 *.plan
 plan.out
+
+# Terraform temporary lockfile variants (Windows replace fallback artifacts)
+**/.terraform.lock.hcl[0-9]*
+
+# Legacy local files from pre-split single-stack layout
+envs/dev/02-k8s-providers.tf
+envs/dev/06-aws-load-balancer-controller.tf
+envs/dev/iam/
