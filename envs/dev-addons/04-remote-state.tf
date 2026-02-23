@@ -13,10 +13,18 @@ locals {
   infra_cluster_oidc_issuer_url = lookup(data.terraform_remote_state.infra.outputs, "cluster_oidc_issuer_url", "")
   infra_oidc_provider_arn       = lookup(data.terraform_remote_state.infra.outputs, "oidc_provider_arn", "")
   infra_vpc_id                  = lookup(data.terraform_remote_state.infra.outputs, "vpc_id", "")
+
+  infra_hosted_zone_id = lookup(data.terraform_remote_state.infra.outputs, "hosted_zone_id", "")
+
   infra_ready = alltrue([
     local.infra_cluster_name != "",
     local.infra_cluster_oidc_issuer_url != "",
     local.infra_oidc_provider_arn != "",
     local.infra_vpc_id != ""
+  ])
+
+  external_dns_ready = alltrue([
+    local.infra_ready,
+    local.infra_hosted_zone_id != ""
   ])
 }
