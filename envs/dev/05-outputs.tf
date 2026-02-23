@@ -38,3 +38,8 @@ output "public_subnet_ids" {
   value       = module.vpc.public_subnets
   description = "Public subnet IDs (NAT gateway lives here)"
 }
+
+output "demo_app_repository_url" {
+  value       = aws_ecr_repository.demo_app.repository_url
+  description = "ECR repository URL for the demo app image"
+}
