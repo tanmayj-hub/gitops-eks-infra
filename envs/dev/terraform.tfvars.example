@@ -11,3 +11,11 @@ cluster_endpoint_public_access_cidrs = ["0.0.0.0/0"]
 node_instance_types = ["t3.medium"]
 
 root_domain = "p1.cloudwithtanmay.com"
+
+# --- Stage 10: Secrets Manager payload for demo-app ---
+# Demo payload (single JSON object stored in Secrets Manager). For real secrets,
+# set this in an ignored *.auto.tfvars file instead of committing it.
+#
+# demo_app_secret_payload = {
+#   WELCOME_MESSAGE = "ct-gitops dev secret — managed in AWS Secrets Manager"
+# }

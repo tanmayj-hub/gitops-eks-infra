@@ -16,6 +16,10 @@ locals {
 
   infra_hosted_zone_id = lookup(data.terraform_remote_state.infra.outputs, "hosted_zone_id", "")
 
+  # Stage 10 (Secrets): used to scope ESO IAM to a single secret
+  infra_demo_app_secret_arn  = lookup(data.terraform_remote_state.infra.outputs, "demo_app_secret_arn", "")
+  infra_demo_app_secret_name = lookup(data.terraform_remote_state.infra.outputs, "demo_app_secret_name", "")
+
   infra_ready = alltrue([
     local.infra_cluster_name != "",
     local.infra_cluster_oidc_issuer_url != "",

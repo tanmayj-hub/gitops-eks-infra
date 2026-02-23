@@ -58,3 +58,13 @@ output "acm_certificate_arn" {
   value       = aws_acm_certificate.p1_wildcard.arn
   description = "ACM wildcard certificate ARN for *.p1.cloudwithtanmay.com (us-east-2)"
 }
+
+output "demo_app_secret_arn" {
+  value       = aws_secretsmanager_secret.demo_app.arn
+  description = "ARN of Secrets Manager secret for demo-app (ct-gitops/dev/demo-app)"
+}
+
+output "demo_app_secret_name" {
+  value       = aws_secretsmanager_secret.demo_app.name
+  description = "Name of Secrets Manager secret for demo-app (ct-gitops/dev/demo-app)"
+}

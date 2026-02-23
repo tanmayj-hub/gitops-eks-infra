@@ -7,3 +7,8 @@ output "external_dns_role_arn" {
   description = "IRSA role ARN used by ExternalDNS"
   value       = try(aws_iam_role.external_dns[0].arn, null)
 }
+
+output "external_secrets_role_arn" {
+  description = "IRSA role ARN used by External Secrets Operator (ESO)"
+  value       = try(aws_iam_role.external_secrets[0].arn, null)
+}
