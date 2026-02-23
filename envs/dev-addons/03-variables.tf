@@ -31,3 +31,9 @@ variable "infra_state_region" {
   type        = string
   default     = "us-east-2"
 }
+
+variable "root_domain" {
+  description = "Hosted zone domain managed by ExternalDNS"
+  type        = string
+  default     = "p1.cloudwithtanmay.com"
+}

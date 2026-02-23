@@ -43,3 +43,13 @@ output "demo_app_repository_url" {
   value       = aws_ecr_repository.demo_app.repository_url
   description = "ECR repository URL for the demo app image"
 }
+
+output "hosted_zone_id" {
+  value       = aws_route53_zone.public.zone_id
+  description = "Route53 hosted zone ID for p1.cloudwithtanmay.com"
+}
+
+output "name_servers" {
+  value       = aws_route53_zone.public.name_servers
+  description = "Route53 NS records for delegating p1.cloudwithtanmay.com"
+}

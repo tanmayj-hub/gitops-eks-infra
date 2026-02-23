@@ -37,3 +37,9 @@ variable "node_instance_types" {
   type        = list(string)
   default     = ["t3.medium"]
 }
+
+variable "root_domain" {
+  description = "Public hosted zone to manage in Route53 (use a subdomain to avoid impacting the root domain)."
+  type        = string
+  default     = "p1.cloudwithtanmay.com"
+}
