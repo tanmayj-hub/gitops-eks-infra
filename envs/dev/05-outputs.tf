@@ -53,3 +53,8 @@ output "name_servers" {
   value       = aws_route53_zone.public.name_servers
   description = "Route53 NS records for delegating p1.cloudwithtanmay.com"
 }
+
+output "acm_certificate_arn" {
+  value       = aws_acm_certificate.p1_wildcard.arn
+  description = "ACM wildcard certificate ARN for *.p1.cloudwithtanmay.com (us-east-2)"
+}
