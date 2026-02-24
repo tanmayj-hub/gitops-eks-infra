@@ -68,3 +68,13 @@ output "demo_app_secret_name" {
   value       = aws_secretsmanager_secret.demo_app.name
   description = "Name of Secrets Manager secret for demo-app (ct-gitops/dev/demo-app)"
 }
+
+output "gha_ecr_push_role_arn" {
+  value       = aws_iam_role.gha_ecr_push.arn
+  description = "GitHub Actions OIDC role ARN for pushing ct-gitops/demo-app to ECR (restricted to ct-gitops-demo-app main)"
+}
+
+output "github_actions_oidc_provider_arn" {
+  value       = aws_iam_openid_connect_provider.github_actions.arn
+  description = "IAM OIDC provider ARN for GitHub Actions (token.actions.githubusercontent.com)"
+}
